@@ -1,0 +1,169 @@
+@media (max-width: 30em) {
+  .navContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 4.5rem;
+    border-bottom: 1px solid #eaeaea;
+    .posContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: calc(100% - 40px);
+      margin: 0 20px;
+
+      .leftContainer,
+      nav {
+        flex: 0 0 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .leftContainer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        img {
+          height: auto;
+          width: 60%;
+        }
+      }
+
+      nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+
+        ul {
+          display: none;
+        }
+
+        .burger {
+          height: 3rem;
+          width: 3rem;
+          background-color: white;
+
+          svg {
+            height: auto;
+            width: 60%;
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          &:active {
+            transform: translateY(2px);
+            transition: 0.1s ease;
+          }
+        }
+      }
+    }
+    .dropDown {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #eaeaea;
+      ul {
+        display: unset;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0.5rem 1rem;
+        width: 100%;
+        li {
+          margin: 0.5rem 1rem;
+          width: 80%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          p {
+            color: black;
+            font-weight: bold;
+            margin: 0.25rem;
+          }
+
+          button {
+            background-color: transparent;
+
+            p {
+              font-weight: bold;
+              font-size: 16px;
+            }
+          }
+
+          &:hover {
+            background-color: #3fae2a;
+            cursor: pointer;
+            border-radius: 4px;
+          }
+
+          &:active {
+            transform: translateY(2px);
+            transition: 0.1s ease;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 30em) {
+  .navContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 4.5rem;
+
+    .posContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin: 0 20px;
+
+      .leftContainer,
+      nav {
+        flex: 0 0 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .leftContainer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        img {
+          height: auto;
+          width: 60%;
+        }
+      }
+
+      nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+
+        ul {
+          list-style: none;
+        }
+
+        .burger,
+        .dropDown {
+          display: none;
+        }
+      }
+    }
+  }
+}
