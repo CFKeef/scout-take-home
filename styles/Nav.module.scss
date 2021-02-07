@@ -17,7 +17,7 @@
 
       .searchContainer,
       nav {
-        flex: 0 0 20%;
+        flex: 0 0 10%;
         display: flex;
       }
 
@@ -34,7 +34,7 @@
           width: 100%;
           svg {
             height: auto;
-            width: 35%;
+            width: 65%;
           }
         }
       }
@@ -43,11 +43,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        max-width: 60%;
-        flex: 0 0 60%;
+        max-width: 80%;
+        flex: 0 0 80%;
         img {
           height: auto;
-          width: 35%;
+          width: 25%;
         }
       }
 
@@ -69,16 +69,7 @@
           align-items: center;
           svg {
             height: auto;
-            width: 35%;
-          }
-
-          &:hover {
-            cursor: pointer;
-          }
-
-          &:active {
-            transform: translateY(2px);
-            transition: 0.1s ease;
+            width: 65%;
           }
         }
       }
@@ -89,6 +80,9 @@
       justify-content: center;
       align-items: center;
       border-bottom: 1px solid #eaeaea;
+      position: absolute;
+      background-color: white;
+      top: 3.5rem;
       ul {
         display: unset;
         list-style-type: none;

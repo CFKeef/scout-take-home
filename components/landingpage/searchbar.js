@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { AiOutlineSearch } from "react-icons/ai";
 import debounce from "lodash/debounce";
 import { index } from "../../lib/algoliasearch";
 import styles from "../../styles/Searchbar.module.scss";
@@ -15,7 +16,7 @@ const SearchBar = () => {
       <ul>
         {results.map((result) => {
           return (
-            <li>
+            <li key={"result" + result.name}>
               <Link href={`/product/${result.id}`}>
                 <a>
                   <div className={styles.productImageContainer}>
@@ -69,11 +70,13 @@ const SearchBar = () => {
         <input
           type="text"
           value={target}
+          placeholder="Search for brand, color, etc"
           onChange={(e) => {
             handleDelayedSearch(e.target.value);
             setTarget(e.target.value);
           }}
         />
+        <AiOutlineSearch />
       </div>
       {results ? handleSearchResultResponse() : null}
     </div>
