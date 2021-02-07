@@ -58,6 +58,7 @@ const SearchBar = () => {
   useEffect(() => {
     if (debouncedSearch) {
       index.search(debouncedSearch).then((res) => {
+        console.log(res);
         setResults(res.hits);
       });
     } else if (target === "") {
@@ -73,6 +74,7 @@ const SearchBar = () => {
           type="text"
           value={target}
           placeholder="Search for brand, color, etc"
+          autoFocus={false}
           onChange={(e) => {
             handleDelayedSearch(e.target.value);
             setTarget(e.target.value);

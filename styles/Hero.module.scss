@@ -1,0 +1,72 @@
+@media (max-width: 30em) {
+  .heroContainer {
+    background: url("../public/images/heroImage.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 45% auto;
+    height: 25rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .posContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      h1 {
+        color: black;
+        font-weight: bold;
+        mark {
+          color: white;
+          background-color: black;
+          padding: 0 0.5rem;
+        }
+      }
+
+      .searchContainer {
+        display: none;
+      }
+    }
+  }
+}
+@media (min-width: 30em) {
+  .heroContainer {
+    background: url("../public/images/heroImage.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 45rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .posContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      max-width: 1100px;
+
+      h1 {
+        color: black;
+        font-weight: bold;
+        font-size: 3rem;
+        mark {
+          color: white;
+          background-color: black;
+          padding: 0 1rem;
+        }
+        margin-bottom: 1rem;
+      }
+
+      .searchContainer {
+        width: 35rem;
+        height: 40px;
+      }
+    }
+  }
+}

@@ -77,3 +77,96 @@
     }
   }
 }
+@media (min-width: 30em) {
+  .searchContainer {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    .searchInput {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      svg {
+        position: absolute;
+        stroke: black;
+        stroke-width: 2px;
+
+        left: 0.5rem;
+      }
+      input {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        padding: 0 0 0 2rem;
+
+        :placeholder-shown {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .searchResults {
+      position: absolute;
+      background-color: white;
+      width: 100%;
+      p {
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        height: 4rem;
+      }
+      ul {
+        max-height: 25rem;
+        overflow: scroll;
+        li {
+          border-bottom: 1px solid #eaeaea;
+          a {
+            margin: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
+            text-decoration: none;
+            color: black;
+
+            .productImageContainer {
+              height: 100%;
+              width: 30%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              img {
+                height: 100%;
+                width: 100px;
+              }
+            }
+
+            .productDetailsContainer {
+              display: flex;
+              justify-content: center;
+              align-items: flex-start;
+              flex-direction: column;
+              width: 70%;
+              margin-left: 10px;
+              h2 {
+                font-size: 12px;
+              }
+              h1 {
+                font-size: 16px;
+                font-weight: bold;
+                letter-spacing: 0.056px;
+                margin: 0;
+              }
+              h3 {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

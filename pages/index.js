@@ -14,6 +14,7 @@ export default function Home() {
       <Head>
         <title>StockX</title>
         <link rel="icon" href="/favicon.ico" />
+        <script>0</script>
       </Head>
       <Nav />
       <Hero selectedCategory={selectedCategory} />

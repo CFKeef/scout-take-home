@@ -1,10 +1,19 @@
 import React from "react";
 import styles from "../../styles/Hero.module.scss";
+import SearchBar from "./searchbar";
 
 const Hero = ({ selectedCategory }) => {
   return (
-    <header>
-      <div className={styles.posContainer}></div>
+    <header className={styles.heroContainer}>
+      <div className={styles.posContainer}>
+        <h1>Buy & Sell </h1>
+        <h1>
+          <mark>Authentic {selectedCategory}</mark>
+        </h1>
+        <div className={styles.searchContainer}>
+          <SearchBar />
+        </div>
+      </div>
     </header>
   );
 };
