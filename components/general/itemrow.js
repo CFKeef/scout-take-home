@@ -3,7 +3,6 @@ import ReactToolTip from "react-tooltip";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import styles from "../../styles/ItemRow.module.scss";
 import Link from "next/link";
-import { query } from "faunadb";
 
 /*
     Generic Item Rows
