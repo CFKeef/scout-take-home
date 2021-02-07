@@ -10,7 +10,7 @@ import {
 import Logo from "../../public/images/stockx.svg";
 
 import styles from "../../styles/Nav.module.scss";
-import SearchBar from "./searchbar";
+import SearchBar from "../general/searchbar";
 
 const Nav = () => {
   const router = useRouter();

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React, { useState } from "react";
 
+import CategoryPicker from "../components/landingpage/categorypicker";
 import ContentView from "../components/landingpage/contentview";
 import Hero from "../components/landingpage/hero";
 import Nav from "../components/landingpage/nav";
@@ -18,11 +19,11 @@ export default function Home() {
       </Head>
       <Nav />
       <Hero selectedCategory={selectedCategory} />
-      <ContentView
+      <CategoryPicker
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
-
+      <ContentView selectedCategory={selectedCategory} />
       <footer></footer>
     </div>
   );

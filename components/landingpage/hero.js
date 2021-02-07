@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../../styles/Hero.module.scss";
-import SearchBar from "./searchbar";
+import SearchBar from "../general/searchbar";
 
 const Hero = ({ selectedCategory }) => {
   return (
