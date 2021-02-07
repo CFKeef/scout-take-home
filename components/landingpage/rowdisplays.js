@@ -29,7 +29,7 @@ const RowDisplays = ({ popularItems, lowestItems, highestItems }) => {
           Items={lowestItems}
         />
         <ItemRow
-          title={"New Highest BIds"}
+          title={"New Highest Bids"}
           sectionCategory={"Bids"}
           toolTip={true}
           toolTipMessage={newHighestMessage}

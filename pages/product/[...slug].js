@@ -47,7 +47,7 @@ const ProductPage = ({ data, recommended }) => {
               <p>{data.lowest_ask}</p>
             </div>
           </div>
-          <div>
+          <div className={styles.rowContainer}>
             <ItemRow
               title={"Most Popular"}
               sectionCategory={"popular"}
@@ -66,10 +66,14 @@ export default ProductPage;
 export const getServerSideProps = async (context) => {
   const data = await index.search(context.query.slug[1]);
   const recommended = await index.search("", { hitsPerPage: 8 });
+  const res = recommended.hits.filter((element) => {
+    return element.product_category === "sneakers";
+  });
+
   return {
     props: {
       data: data.hits[0],
-      recommended: recommended.hits,
+      recommended: res,
     },
   };
 };
