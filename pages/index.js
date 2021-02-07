@@ -1,13 +1,14 @@
 import Head from "next/head";
 import React, { useState } from "react";
+import { index } from "../lib/algoliasearch";
 
 import CategoryPicker from "../components/landingpage/categorypicker";
-import ContentView from "../components/landingpage/contentview";
+import RowDisplays from "../components/landingpage/rowdisplays";
 import Hero from "../components/landingpage/hero";
 import Nav from "../components/landingpage/nav";
 import styles from "../styles/Home.module.scss";
 
-export default function Home() {
+export default function Home({ popularItems, lowestItems, highestItems }) {
   const [selectedCategory, setSelectedCategory] = useState("Sneakers");
 
   return (
@@ -23,8 +24,28 @@ export default function Home() {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
-      <ContentView selectedCategory={selectedCategory} />
+      <RowDisplays
+        popularItems={popularItems}
+        lowestItems={lowestItems}
+        highestItems={highestItems}
+      />
       <footer></footer>
     </div>
   );
 }
+
+// Some beautiful Incremental Static regeneration :)
+export const getStaticProps = async () => {
+  // Emulating response
+  const res = await index.search();
+
+  return {
+    props: {
+      popularItems: res.hits,
+      lowestItems: res.hits,
+      highestItems: res.hits,
+    },
+    // Will revalidate data every 3 hours (in seconds)
+    revalidate: 10800,
+  };
+};
