@@ -34,7 +34,7 @@ export default function Home({ popularItems, lowestItems, highestItems }) {
 }
 
 // Some beautiful Incremental Static regeneration :)
-export const getStaticProps = async (context) => {
+export const getStaticProps = async () => {
   // Emulating response
   const res = await index.search();
 
