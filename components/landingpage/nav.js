@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { index } from "../../lib/algoliasearch";
+import { useRouter } from "next/router";
 
 import {
   AiOutlineMenu,
@@ -13,6 +13,7 @@ import styles from "../../styles/Nav.module.scss";
 import SearchBar from "./searchbar";
 
 const Nav = () => {
+  const router = useRouter();
   const [isMenuShowing, setMenuShowing] = useState(false);
   const [isUserSearching, setUserSearching] = useState(false);
 
@@ -58,7 +59,16 @@ const Nav = () => {
   const generateCenterContent = () => {
     if (isUserSearching) {
       return <SearchBar />;
-    } else return <img draggable={false} src={Logo} />;
+    } else
+      return (
+        <img
+          draggable={false}
+          src={Logo}
+          onClick={() => {
+            router.push("/");
+          }}
+        />
+      );
   };
 
   return (

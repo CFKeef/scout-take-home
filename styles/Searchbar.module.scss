@@ -26,6 +26,12 @@
       width: 100vw;
       top: 3rem;
       left: -3.5rem;
+      p {
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        height: 4rem;
+      }
       ul {
         max-height: 45rem;
         overflow: scroll;

@@ -17,8 +17,8 @@ const SearchBar = () => {
         {results.map((result) => {
           return (
             <li key={"result" + result.name}>
-              <Link href={`/product/${result.id}`}>
-                <a>
+              <Link href={`/product/${result.id}`} passHref>
+                <a draggable={false}>
                   <div className={styles.productImageContainer}>
                     <img draggable="false" src={result.thumbnail_url} />
                   </div>
@@ -49,10 +49,12 @@ const SearchBar = () => {
     );
   };
 
+  // Eats up multiple requests in the given span of time(500)
   const handleDelayedSearch = debounce((search) => {
     setDebouncedSearch(search);
   }, 500);
 
+  // When debouncedSearch updates we'll query with algolia
   useEffect(() => {
     if (debouncedSearch) {
       index.search(debouncedSearch).then((res) => {

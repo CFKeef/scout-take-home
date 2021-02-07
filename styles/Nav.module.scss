@@ -92,6 +92,7 @@
         flex-direction: column;
         margin: 0.5rem 1rem;
         width: 100%;
+
         li {
           margin: 0.5rem 1rem;
           width: 80%;
@@ -105,21 +106,11 @@
             margin: 0.25rem;
           }
 
-          button {
-            background-color: transparent;
-
-            p {
-              font-weight: bold;
-              font-size: 16px;
-            }
-          }
-
           &:hover {
             background-color: #3fae2a;
             cursor: pointer;
             border-radius: 4px;
           }
-
           &:active {
             transform: translateY(2px);
             transition: 0.1s ease;
@@ -136,18 +127,19 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 4.5rem;
-
+    height: 80px;
+    border-bottom: 1px solid #eaeaea;
     .posContainer {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      height: 100%;
       margin: 0 20px;
+      max-width: 1100px;
 
       .logoContainer,
       nav {
-        flex: 0 0 50%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -157,9 +149,15 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        height: 100%;
+        flex: 0 0 30%;
         img {
-          height: auto;
+          height: 100%;
           width: 60%;
+
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
 
@@ -168,15 +166,31 @@
         justify-content: flex-end;
         align-items: center;
         position: relative;
-
+        height: 100%;
+        flex: 0 0 70%;
         ul {
           list-style: none;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          width: 60%;
+          li {
+            &:not(:first-child) {
+              margin-left: 1rem;
+            }
+            &:hover {
+              cursor: pointer;
+            }
+          }
         }
 
         .burger,
         .dropDown {
           display: none;
         }
+      }
+      .searchContainer {
+        display: none;
       }
     }
   }
