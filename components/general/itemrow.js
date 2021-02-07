@@ -3,6 +3,7 @@ import ReactToolTip from "react-tooltip";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import styles from "../../styles/ItemRow.module.scss";
 import Link from "next/link";
+import { query } from "faunadb";
 
 /*
     Generic Item Rows
@@ -38,7 +39,11 @@ const ItemRow = ({
   // Generates the product card
   const generateCard = (product) => {
     return (
-      <Link href={`/product/${product.id}`} passhref>
+      <Link
+        href={"/product/[...slug]"}
+        as={`/product/${product.url}/${product.style_id}/${product.release_date}`}
+        passhref
+      >
         <a draggable={false}>
           <div className={styles.imgContainer}>
             <img draggable={false} src={product.thumbnail_url} />
@@ -72,7 +77,9 @@ const ItemRow = ({
   return (
     <div className={styles.itemRowContainer}>
       <div className={styles.upperContainer}>
-        {isToolTipVisible ? <ReactToolTip scrollHide={true} /> : null}
+        {isToolTipVisible && toolTip ? (
+          <ReactToolTip scrollHide={true} />
+        ) : null}
         <h2>
           {title} {toolTip ? generateToolTip() : null}
         </h2>

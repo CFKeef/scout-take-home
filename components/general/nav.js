@@ -12,7 +12,7 @@ import Logo from "../../public/images/stockx.svg";
 import styles from "../../styles/Nav.module.scss";
 import SearchBar from "../general/searchbar";
 
-const Nav = () => {
+const Nav = ({ desktopSearchBar }) => {
   const router = useRouter();
   const [isMenuShowing, setMenuShowing] = useState(false);
   const [isUserSearching, setUserSearching] = useState(false);
@@ -59,7 +59,7 @@ const Nav = () => {
   const generateCenterContent = () => {
     if (isUserSearching) {
       return <SearchBar />;
-    } else
+    } else {
       return (
         <img
           draggable={false}
@@ -69,7 +69,33 @@ const Nav = () => {
           }}
         />
       );
+    }
   };
+
+  if (desktopSearchBar)
+    return (
+      <section className={styles.navContainer}>
+        <div className={styles.posContainer}>
+          <div className={styles.searchContainer}>
+            <button onClick={() => setUserSearching(!isUserSearching)}>
+              {isUserSearching ? <AiOutlineCloseCircle /> : <AiOutlineSearch />}
+            </button>
+          </div>
+          <div className={styles.logoContainer}>{generateCenterContent()}</div>
+          <div className={styles.productSearchContainer}>
+            <SearchBar />
+          </div>
+          <nav>
+            {generateNavList()}
+            {generateBurger()}
+          </nav>
+        </div>
+        {/*Will use this for drop down */}
+        {isMenuShowing ? (
+          <div className={styles.dropDown}> {generateNavList()}</div>
+        ) : null}
+      </section>
+    );
 
   return (
     <section className={styles.navContainer}>

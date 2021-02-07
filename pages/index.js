@@ -5,7 +5,7 @@ import { index } from "../lib/algoliasearch";
 import CategoryPicker from "../components/landingpage/categorypicker";
 import RowDisplays from "../components/landingpage/rowdisplays";
 import Hero from "../components/landingpage/hero";
-import Nav from "../components/landingpage/nav";
+import Nav from "../components/general/nav";
 import styles from "../styles/Home.module.scss";
 
 export default function Home({ popularItems, lowestItems, highestItems }) {
@@ -29,7 +29,6 @@ export default function Home({ popularItems, lowestItems, highestItems }) {
         lowestItems={lowestItems}
         highestItems={highestItems}
       />
-      <footer></footer>
     </div>
   );
 }
@@ -39,11 +38,16 @@ export const getStaticProps = async () => {
   // Emulating response
   const res = await index.search();
 
+  // Filtered out the elements that aren't sneakers
+  const data = res.hits.filter((element) => {
+    return element.product_category === "sneakers";
+  });
+
   return {
     props: {
-      popularItems: res.hits,
-      lowestItems: res.hits,
-      highestItems: res.hits,
+      popularItems: data,
+      lowestItems: data,
+      highestItems: data,
     },
     // Will revalidate data every 3 hours (in seconds)
     revalidate: 10800,

@@ -38,6 +38,10 @@
         }
       }
 
+      .productSearchContainer {
+        display: none;
+      }
+
       .logoContainer {
         display: flex;
         justify-content: center;
@@ -147,7 +151,7 @@
         justify-content: flex-start;
         align-items: center;
         height: 100%;
-        flex: 0 0 30%;
+        width: 10%;
         img {
           height: 100%;
           width: 60%;
@@ -164,13 +168,12 @@
         align-items: center;
         position: relative;
         height: 100%;
-        flex: 0 0 70%;
+        width: 40%;
         ul {
           list-style: none;
           display: flex;
           justify-content: flex-end;
           align-items: center;
-          width: 60%;
           li {
             &:not(:first-child) {
               margin-left: 1rem;
@@ -188,6 +191,10 @@
       }
       .searchContainer {
         display: none;
+      }
+      .productSearchContainer {
+        width: 50%;
+        height: 40px;
       }
     }
   }

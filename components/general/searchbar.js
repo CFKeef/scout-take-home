@@ -16,8 +16,12 @@ const SearchBar = () => {
       <ul>
         {results.map((result) => {
           return (
-            <li key={"result" + result.name}>
-              <Link href={`/product/${result.id}`} passHref>
+            <li key={"result" + result.style_id}>
+              <Link
+                href={"/product/[...slug]"}
+                as={`/product/${result.url}/${result.style_id}/${result.release_date}`}
+                passHref
+              >
                 <a draggable={false}>
                   <div className={styles.productImageContainer}>
                     <img draggable="false" src={result.thumbnail_url} />
@@ -41,7 +45,10 @@ const SearchBar = () => {
     return (
       <div className={styles.searchResults}>
         {results.length === 0 ? (
-          <p>Couldn't find anything</p>
+          <div className={styles.emptySearch}>
+            <p>😢 Couldn't find anything</p>
+            <p>Double check what you entered</p>
+          </div>
         ) : (
           getSearchResultsList()
         )}
@@ -58,7 +65,6 @@ const SearchBar = () => {
   useEffect(() => {
     if (debouncedSearch) {
       index.search(debouncedSearch).then((res) => {
-        console.log(res);
         setResults(res.hits);
       });
     } else if (target === "") {
